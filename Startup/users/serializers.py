@@ -28,6 +28,8 @@ class JobSeekerSignUpSerializer(serializers.ModelSerializer):
             user.set_password(validated_data['password'])
             user.is_jobSeeker = True
             user.save()
+            group = Group.objects.get(name='jobSeekers_editors')
+            group.user_set.add(user)
             JobSeeker.objects.create(user=user)
             return user
 
@@ -51,10 +53,16 @@ class EmployerSignUpSerializer(serializers.ModelSerializer):
             user.set_password(validated_data['password'])
             user.is_employer = True
             user.save()
-            g = Group.objects.get(name='employers_editors')
-            g.user_set.add(user)
+            group = Group.objects.get(name='employers_editors')
+            group.user_set.add(user)
             Employer.objects.create(user=user)
             return user
 
 
+class JobSeekerSerializer(serializers.ModelSerializer):
+    user = UserSerializer()
 
+    class Meta:
+        model = JobSeeker
+        fields = '__all__'
+        depth = 1

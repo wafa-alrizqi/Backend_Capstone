@@ -7,7 +7,7 @@ from rest_framework_simplejwt.tokens import AccessToken
 from django.contrib.auth import authenticate
 from rest_framework_simplejwt.authentication import JWTAuthentication
 from .models import Job, JobApplications
-from .serializers import JobSerializer, JobApplicationsSerializer
+from .serializers import JobSerializer, JobApplicationsSerializer, Applications_Status_Serializer
 
 from django.contrib.auth import get_user_model
 from django.shortcuts import get_object_or_404
@@ -85,10 +85,6 @@ def delete_job(request: Request, job_id):
 @api_view(['GET'])
 @authentication_classes([JWTAuthentication])
 def posted_jobs_per_employer(request: Request, employer_id):
-    # username = User.objects.get(id=request.user.id)
-    # print(username)
-    # if username.is_employer:
-    #     print(username)
     job = Job.objects.filter(employer_id=employer_id)
     dataResponse = {
         'msg': 'List of All Jobs',
@@ -156,12 +152,55 @@ def applied_job_list(request: Request, jobSeeker_id):
 @api_view(['GET'])
 @authentication_classes([JWTAuthentication])
 def applications_per_job(request: Request, employer_id):
-    print(request.user.id)
-    application = JobApplications.objects.all()
+    if not request.user.is_authenticated and not request.user.is_employer:
+        return Response({'msg': 'Not Allowed'}, status=status.HTTP_401_UNAUTHORIZED)
+
+    job = Job.objects.filter(employer_id=employer_id)
+    application = JobApplications.objects.filter(job__in=job)
     dataResponse = {
         'msg application': 'List of Applied Jobs',
         'application': JobApplicationsSerializer(instance=application, many=True).data
     }
     return Response(dataResponse)
 
+
+@api_view(['GET'])
+def search(request: Request):
+    job = Job.objects.all()
+    j_category = request.GET.get('category', None)
+    j_type = request.GET.get('category', None)
+    j_city = request.GET.get('category', None)
+
+    if j_category or j_type or j_city is not None:
+        job = job.filter(category__icontains=j_category) | \
+              job.filter(type__icontains=j_type) | \
+              job.filter(city__icontains=j_city)
+
+        dataResponse = {
+            'msg': 'Search For Job',
+            'Job': JobSerializer(job, many=True).data
+        }
+    return Response(dataResponse)
+
+
+@api_view(['PUT'])
+@authentication_classes([JWTAuthentication])
+def update_request_status(request: Request, application_id):
+    if not request.user.is_authenticated:
+        return Response({'msg': 'Not Allowed'}, status=status.HTTP_401_UNAUTHORIZED)
+
+    application = JobApplications.objects.get(id=application_id)
+    if request.user.id == application.job.employer_id.user.id:
+        status_updated = Applications_Status_Serializer(instance=application, data=request.data)
+        if status_updated.is_valid():
+            status_updated.save()
+            responseData = {
+                'msg': 'Status Updated Successfully',
+                'User Profile': JobApplicationsSerializer(instance=application).data
+            }
+            return Response(responseData, status=status.HTTP_200_OK)
+        else:
+            return Response(status_updated.errors, status=status.HTTP_400_BAD_REQUEST)
+    else:
+        return Response({'msg': 'Not Unauthorized User'}, status=status.HTTP_401_UNAUTHORIZED)
 

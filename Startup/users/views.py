@@ -2,19 +2,22 @@ from . import permissions
 from rest_framework import generics
 from rest_framework.authtoken.models import Token
 from rest_framework.views import APIView
-from .serializers import UserSerializer, EmployerSignUpSerializer, JobSeekerSignUpSerializer
+from .serializers import UserSerializer, EmployerSignUpSerializer, JobSeekerSignUpSerializer, JobSeekerSerializer
 from rest_framework.authtoken.views import ObtainAuthToken
-from rest_framework.response import Response
 from rest_framework import status
-from django.contrib.auth.models import Group
 from rest_framework.decorators import api_view, authentication_classes
+from rest_framework_simplejwt.authentication import JWTAuthentication
 from rest_framework.request import Request
 from rest_framework.response import Response
-
 from rest_framework_simplejwt.tokens import AccessToken
 from django.contrib.auth import authenticate
+from django.contrib.auth import get_user_model
 
-from .models import User
+User = get_user_model()
+
+from .models import Employer, JobSeeker
+
+
 # Create your views here.
 
 
@@ -74,10 +77,9 @@ def login_user(request: Request):
     return Response({'msg': 'Provide your username and password'}, status=status.HTTP_401_UNAUTHORIZED)
 
 
-
 class LogoutView(APIView):
-    def post(self, request, format=None):
-        request.auth.delete()
+    def post(self, request: Request, format=None):
+        request.user.auth.delete()
         return Response({"msg": "You are Logged Out"}, status=status.HTTP_200_OK)
 
 
@@ -95,3 +97,47 @@ class JobSeekerOnlyView(generics.RetrieveAPIView):
 
     def get_object(self):
         return self.request.user
+
+
+@api_view(['PUT'])
+@authentication_classes([JWTAuthentication])
+def update_profile_JobSeeker(request: Request, jobSeeker_id):
+    if not request.user.is_authenticated:
+        return Response({'msg': 'Not Allowed'}, status=status.HTTP_401_UNAUTHORIZED)
+
+    jobSeeker = JobSeeker.objects.get(id=jobSeeker_id)
+    if request.user.id == jobSeeker.user.id:
+        profile_updated = JobSeekerSerializer(instance=jobSeeker, data=request.data)
+        request.data['user'] = request.user.id
+        if profile_updated.is_valid():
+            profile_updated.save()
+            responseData = {
+                'msg': 'Profile Updated Successfully',
+                'User Profile': JobSeekerSerializer(instance=jobSeeker).data
+            }
+            return Response(responseData, status=status.HTTP_200_OK)
+        else:
+            return Response(profile_updated.errors, status=status.HTTP_400_BAD_REQUEST)
+    else:
+        return Response({'msg': 'Not Unauthorized User'}, status=status.HTTP_401_UNAUTHORIZED)
+
+
+@api_view(['GET'])
+@authentication_classes([JWTAuthentication])
+def view_profile_JobSeeker(request: Request, jobSeeker_id):
+    if not request.user.is_authenticated:
+        return Response({'msg': 'Not Allowed'}, status=status.HTTP_401_UNAUTHORIZED)
+
+    jobSeeker = JobSeeker.objects.get(id=jobSeeker_id)
+    if request.user.id == jobSeeker.user.id:
+        request.data['user'] = request.user.id
+        dataResponse = {
+            'msg': 'List of Users',
+            'Job': JobSeekerSerializer(instance=jobSeeker).data
+        }
+        return Response(dataResponse)
+    else:
+        return Response({'msg': 'Not Unauthorized User'}, status=status.HTTP_401_UNAUTHORIZED)
+
+
+
