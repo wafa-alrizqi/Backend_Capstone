@@ -12,11 +12,11 @@
 ## Type of users: Employer, Job Seeker, Visitor
 ### Employer:
 #### -	Register and login in the system
-#### -	Post ,Update and delete a job.
+#### -	Post ,Update and Delete a job.
 #### -	View requests per job.
 #### -	Accept/Reject requests per job.
 #### -	View list of posted jobs.
-#### -	View profile.
+#### -	View and Update profile.
 
 ### Job seeker:
 #### -	Register and login in the system.
@@ -24,10 +24,13 @@
 #### -	Apply for Job.
 #### -	View lists of applied jobs.
 #### -	Search for a job.
-#### -	View profile.
+#### -	View and Update profile.
 
 ### Visitor:
 #### -	View all Jobs
 #### -	Search for a job.
+
+### This Diagram shows the models and their relationships.
+
 
 
