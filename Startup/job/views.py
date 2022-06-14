@@ -2,15 +2,11 @@ from django.contrib.auth.decorators import login_required
 from rest_framework.decorators import api_view, authentication_classes
 from rest_framework.request import Request
 from rest_framework.response import Response
-from rest_framework import status, generics, serializers
-from rest_framework_simplejwt.tokens import AccessToken
-from django.contrib.auth import authenticate
+from rest_framework import status
 from rest_framework_simplejwt.authentication import JWTAuthentication
 from .models import Job, JobApplications
 from .serializers import JobSerializer, JobApplicationsSerializer, Applications_Status_Serializer
-
 from django.contrib.auth import get_user_model
-from django.shortcuts import get_object_or_404
 
 User = get_user_model()
 

@@ -60,9 +60,18 @@ class EmployerSignUpSerializer(serializers.ModelSerializer):
 
 
 class JobSeekerSerializer(serializers.ModelSerializer):
-    user = UserSerializer()
+    user = UserSerializer
 
     class Meta:
         model = JobSeeker
+        fields = '__all__'
+        depth = 1
+
+
+class EmployerSerializer(serializers.ModelSerializer):
+    user = UserSerializer
+
+    class Meta:
+        model = Employer
         fields = '__all__'
         depth = 1

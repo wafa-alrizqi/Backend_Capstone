@@ -2,7 +2,8 @@ from . import permissions
 from rest_framework import generics
 from rest_framework.authtoken.models import Token
 from rest_framework.views import APIView
-from .serializers import UserSerializer, EmployerSignUpSerializer, JobSeekerSignUpSerializer, JobSeekerSerializer
+from .serializers import UserSerializer, EmployerSignUpSerializer, JobSeekerSignUpSerializer, JobSeekerSerializer, \
+    EmployerSerializer
 from rest_framework.authtoken.views import ObtainAuthToken
 from rest_framework import status
 from rest_framework.decorators import api_view, authentication_classes
@@ -22,6 +23,9 @@ from .models import Employer, JobSeeker
 
 
 class EmployerSignUpView(generics.GenericAPIView):
+    """
+    Employer Sign up
+    """
     serializer_class = EmployerSignUpSerializer
 
     def post(self, request, *args, **kwargs):
@@ -36,6 +40,9 @@ class EmployerSignUpView(generics.GenericAPIView):
 
 
 class JobSeekerSignUpView(generics.GenericAPIView):
+    """
+    Job Seeker Sign up
+    """
     serializer_class = JobSeekerSignUpSerializer
 
     def post(self, request, *args, **kwargs):
@@ -64,6 +71,10 @@ class CustomAuthToken(ObtainAuthToken):
 
 @api_view(['POST'])
 def login_user(request: Request):
+    """
+    login for employer and job seeker
+    """
+
     if 'username' in request.data and 'password' in request.data:
         user = authenticate(request, username=request.data['username'], password=request.data['password'])
         if user is not None:
@@ -84,6 +95,9 @@ class LogoutView(APIView):
 
 
 class EmployerOnlyView(generics.RetrieveAPIView):
+    """
+    just a dashboard for employer
+    """
     permission_classes = [permissions.isEmployerUser]
     serializer_class = UserSerializer
 
@@ -92,6 +106,9 @@ class EmployerOnlyView(generics.RetrieveAPIView):
 
 
 class JobSeekerOnlyView(generics.RetrieveAPIView):
+    """
+    just a dashboard for job seeker
+    """
     permission_classes = [permissions.isJobSeekerUser]
     serializer_class = UserSerializer
 
@@ -132,12 +149,51 @@ def view_profile_JobSeeker(request: Request, jobSeeker_id):
     if request.user.id == jobSeeker.user.id:
         request.data['user'] = request.user.id
         dataResponse = {
-            'msg': 'List of Users',
-            'Job': JobSeekerSerializer(instance=jobSeeker).data
+            'msg': 'Job Seeker Profile',
+            'Profile': JobSeekerSerializer(instance=jobSeeker).data
         }
         return Response(dataResponse)
     else:
         return Response({'msg': 'Not Unauthorized User'}, status=status.HTTP_401_UNAUTHORIZED)
 
 
+@api_view(['PUT'])
+@authentication_classes([JWTAuthentication])
+def update_profile_employer(request: Request, employer_id):
+    if not request.user.is_authenticated:
+        return Response({'msg': 'Not Allowed'}, status=status.HTTP_401_UNAUTHORIZED)
+
+    employer = Employer.objects.get(id=employer_id)
+    if request.user.id == employer.user.id:
+        profile_updated = EmployerSerializer(instance=employer, data=request.data)
+        request.data['user'] = request.user.id
+        if profile_updated.is_valid():
+            profile_updated.save()
+            responseData = {
+                'msg': 'Profile Updated Successfully',
+                'User Profile': EmployerSerializer(instance=employer).data
+            }
+            return Response(responseData, status=status.HTTP_200_OK)
+        else:
+            return Response(profile_updated.errors, status=status.HTTP_400_BAD_REQUEST)
+    else:
+        return Response({'msg': 'Not Unauthorized User'}, status=status.HTTP_401_UNAUTHORIZED)
+
+
+@api_view(['GET'])
+@authentication_classes([JWTAuthentication])
+def view_profile_employer(request: Request, employer_id):
+    if not request.user.is_authenticated:
+        return Response({'msg': 'Not Allowed'}, status=status.HTTP_401_UNAUTHORIZED)
+
+    employer = Employer.objects.get(id=employer_id)
+    if request.user.id == employer.user.id:
+        request.data['user'] = request.user.id
+        dataResponse = {
+            'msg': 'Employer Profile',
+            'Profile': EmployerSerializer(instance=employer).data
+        }
+        return Response(dataResponse)
+    else:
+        return Response({'msg': 'Not Unauthorized User'}, status=status.HTTP_401_UNAUTHORIZED)
 
