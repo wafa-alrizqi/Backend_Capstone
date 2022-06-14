@@ -31,6 +31,8 @@
 #### -	Search for a job.
 
 ### This Diagram shows the models and their relationships.
+<img width="787" alt="project_diagram2" src="https://user-images.githubusercontent.com/103145479/173533799-55c64a04-f910-4b5c-8012-9831f800036c.png">
+
 
 
 
