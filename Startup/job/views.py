@@ -148,16 +148,19 @@ def applied_job_list(request: Request, jobSeeker_id):
 @api_view(['GET'])
 @authentication_classes([JWTAuthentication])
 def applications_per_job(request: Request, employer_id):
-    if not request.user.is_authenticated and not request.user.is_employer:
+    if not request.user.is_authenticated and request.user.is_jobSeeker:
         return Response({'msg': 'Not Allowed'}, status=status.HTTP_401_UNAUTHORIZED)
 
-    job = Job.objects.filter(employer_id=employer_id)
-    application = JobApplications.objects.filter(job__in=job)
-    dataResponse = {
-        'msg application': 'List of Applied Jobs',
-        'application': JobApplicationsSerializer(instance=application, many=True).data
-    }
-    return Response(dataResponse)
+    if request.user.is_employer:
+        job = Job.objects.filter(employer_id=employer_id)
+        application = JobApplications.objects.filter(job__in=job)
+        dataResponse = {
+            'msg application': 'List of Applied Jobs',
+            'application': JobApplicationsSerializer(instance=application, many=True).data
+        }
+        return Response(dataResponse)
+    else:
+        return Response({'msg': 'Not Unauthorized User'}, status=status.HTTP_401_UNAUTHORIZED)
 
 
 @api_view(['GET'])
