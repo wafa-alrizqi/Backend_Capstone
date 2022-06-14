@@ -1,0 +1,2172 @@
+{
+	"info": {
+		"_postman_id": "3fafc31a-efe6-4a4f-b92d-bc594f7d6330",
+		"name": "Start Up",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "21320084"
+	},
+	"item": [
+		{
+			"name": "Models",
+			"item": [
+				{
+					"name": "Job",
+					"item": [
+						{
+							"name": "add job",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjU1MTAyMjAxLCJpYXQiOjE2NTUxMDEwMDEsImp0aSI6ImE3ZjMzODRiOTYxNDQ2N2ZhNGQ2MGRlYjA2ZTVhM2JjIiwidXNlcl9pZCI6NzF9.07zUpXiWMsvJAO33L4ly4HupSsjv-QVcQL69-G_n6ME",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"title\":\"job 9 am\",\r\n    \"requirements\":\"job2 requirements\",\r\n    \"type\":\"remote\",\r\n    \"Start_date\":\"2022-06-12\",\r\n    \"city\":\"Riyadh\",\r\n    \"category\":\"Developer\",\r\n    \"image\":\"image.png\",\r\n    \"employer_id\":8\r\n    }",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://127.0.0.1:8000/add_job/",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"add_job",
+										""
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "New Request",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjU1MDY5NDU3LCJpYXQiOjE2NTUwNjkxNTcsImp0aSI6ImJiYjg5NGFjMDQ1YzQwODc4ODg5NDc1OGEyNDY0YWU1IiwidXNlcl9pZCI6NzZ9.Yp42-coIzP8k_ZiY9n2RGp_kocVV1ZEKIzxj2zpyilY",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"title\":\"job2\",\r\n    \"requirements\":\"job2 requirements\",\r\n    \"type\":\"remote\",\r\n    \"Start_date\":\"2022-06-12\",\r\n    \"city\":\"Riyadh\",\r\n    \"category\":\"Developer\",\r\n    \"image\":\"image.png\",\r\n    \"employer_id\":8\r\n    }",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "http://127.0.0.1:8000/add_job/",
+											"protocol": "http",
+											"host": [
+												"127",
+												"0",
+												"0",
+												"1"
+											],
+											"port": "8000",
+											"path": [
+												"add_job",
+												""
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Date",
+											"value": "Sun, 12 Jun 2022 21:28:25 GMT"
+										},
+										{
+											"key": "Server",
+											"value": "WSGIServer/0.2 CPython/3.10.4"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										},
+										{
+											"key": "Vary",
+											"value": "Accept"
+										},
+										{
+											"key": "Allow",
+											"value": "OPTIONS, POST"
+										},
+										{
+											"key": "X-Frame-Options",
+											"value": "DENY"
+										},
+										{
+											"key": "Content-Length",
+											"value": "214"
+										},
+										{
+											"key": "X-Content-Type-Options",
+											"value": "nosniff"
+										},
+										{
+											"key": "Referrer-Policy",
+											"value": "same-origin"
+										},
+										{
+											"key": "Cross-Origin-Opener-Policy",
+											"value": "same-origin"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"msg\": \"Job Added Successfully\",\n    \"job\": {\n        \"id\": 6,\n        \"title\": \"job2\",\n        \"requirements\": \"job2 requirements\",\n        \"type\": \"remote\",\n        \"Start_date\": \"2022-06-12\",\n        \"city\": \"Riyadh\",\n        \"category\": \"Developer\",\n        \"image\": \"image.png\",\n        \"employer_id\": 8\n    }\n}"
+								}
+							]
+						},
+						{
+							"name": "update job",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjU1MDc1MTAxLCJpYXQiOjE2NTUwNzM5MDEsImp0aSI6IjE4MDhhODJkMTVkYTQzYWNiMzQ5YjRjNjJmMDJmZjRhIiwidXNlcl9pZCI6NzZ9.2x5kaa0Aki7lVL26sLmiusEcqCLFPKHGr8qw1JQhYh4",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"title\":\"updated  1am \",\r\n    \"requirements\":\"job2 requirements\",\r\n    \"type\":\"remote\",\r\n    \"Start_date\":\"2022-06-12\",\r\n    \"city\":\"Riyadh\",\r\n    \"category\":\"Developer\",\r\n    \"image\":\"image.png\",\r\n    \"employer_id\":8\r\n    }",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://127.0.0.1:8000/update_job/13/",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"update_job",
+										"13",
+										""
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "update job",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjU1MDcxMDAwLCJpYXQiOjE2NTUwNzA3MDAsImp0aSI6IjI2NThkMDgzOTFjNTQxM2Y4N2NlY2UwY2Q0OWRkNmZjIiwidXNlcl9pZCI6NzZ9.HjVf8BXZPBkZzfG4WJUzTrYBXV4XIFVupINvVGHOL_4",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"title\":\"updated job\",\r\n    \"requirements\":\"job2 requirements\",\r\n    \"type\":\"remote\",\r\n    \"Start_date\":\"2022-06-12\",\r\n    \"city\":\"Riyadh\",\r\n    \"category\":\"Developer\",\r\n    \"image\":\"image.png\",\r\n    \"employer_id\":8\r\n    }",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "http://127.0.0.1:8000/update_job/4/",
+											"protocol": "http",
+											"host": [
+												"127",
+												"0",
+												"0",
+												"1"
+											],
+											"port": "8000",
+											"path": [
+												"update_job",
+												"4",
+												""
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Date",
+											"value": "Sun, 12 Jun 2022 21:54:23 GMT"
+										},
+										{
+											"key": "Server",
+											"value": "WSGIServer/0.2 CPython/3.10.4"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										},
+										{
+											"key": "Vary",
+											"value": "Accept"
+										},
+										{
+											"key": "Allow",
+											"value": "PUT, OPTIONS"
+										},
+										{
+											"key": "X-Frame-Options",
+											"value": "DENY"
+										},
+										{
+											"key": "Content-Length",
+											"value": "34"
+										},
+										{
+											"key": "X-Content-Type-Options",
+											"value": "nosniff"
+										},
+										{
+											"key": "Referrer-Policy",
+											"value": "same-origin"
+										},
+										{
+											"key": "Cross-Origin-Opener-Policy",
+											"value": "same-origin"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"msg\": \"Job Updated Successfully\"\n}"
+								}
+							]
+						},
+						{
+							"name": "delete job",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjU1MDc0MzU3LCJpYXQiOjE2NTUwNzMxNTcsImp0aSI6ImQxOWM5ZDRkNGFjMjQ3MWY5YTliOTUwMGU5ZjAwODcxIiwidXNlcl9pZCI6NzZ9.bqi6xmUbmv0ZyDmMvz0ugLMYrWesF74p4NnQcaErepc",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://127.0.0.1:8000/delete_job/5/",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"delete_job",
+										"5",
+										""
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "update job",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjU1MDcxMDAwLCJpYXQiOjE2NTUwNzA3MDAsImp0aSI6IjI2NThkMDgzOTFjNTQxM2Y4N2NlY2UwY2Q0OWRkNmZjIiwidXNlcl9pZCI6NzZ9.HjVf8BXZPBkZzfG4WJUzTrYBXV4XIFVupINvVGHOL_4",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"title\":\"updated job\",\r\n    \"requirements\":\"job2 requirements\",\r\n    \"type\":\"remote\",\r\n    \"Start_date\":\"2022-06-12\",\r\n    \"city\":\"Riyadh\",\r\n    \"category\":\"Developer\",\r\n    \"image\":\"image.png\",\r\n    \"employer_id\":8\r\n    }",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "http://127.0.0.1:8000/update_job/4/",
+											"protocol": "http",
+											"host": [
+												"127",
+												"0",
+												"0",
+												"1"
+											],
+											"port": "8000",
+											"path": [
+												"update_job",
+												"4",
+												""
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Date",
+											"value": "Sun, 12 Jun 2022 21:54:23 GMT"
+										},
+										{
+											"key": "Server",
+											"value": "WSGIServer/0.2 CPython/3.10.4"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										},
+										{
+											"key": "Vary",
+											"value": "Accept"
+										},
+										{
+											"key": "Allow",
+											"value": "PUT, OPTIONS"
+										},
+										{
+											"key": "X-Frame-Options",
+											"value": "DENY"
+										},
+										{
+											"key": "Content-Length",
+											"value": "34"
+										},
+										{
+											"key": "X-Content-Type-Options",
+											"value": "nosniff"
+										},
+										{
+											"key": "Referrer-Policy",
+											"value": "same-origin"
+										},
+										{
+											"key": "Cross-Origin-Opener-Policy",
+											"value": "same-origin"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"msg\": \"Job Updated Successfully\"\n}"
+								},
+								{
+									"name": "delete job",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjU1MDc0MzU3LCJpYXQiOjE2NTUwNzMxNTcsImp0aSI6ImQxOWM5ZDRkNGFjMjQ3MWY5YTliOTUwMGU5ZjAwODcxIiwidXNlcl9pZCI6NzZ9.bqi6xmUbmv0ZyDmMvz0ugLMYrWesF74p4NnQcaErepc",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "http://127.0.0.1:8000/delete_job/5/",
+											"protocol": "http",
+											"host": [
+												"127",
+												"0",
+												"0",
+												"1"
+											],
+											"port": "8000",
+											"path": [
+												"delete_job",
+												"5",
+												""
+											]
+										}
+									},
+									"status": "Unauthorized",
+									"code": 401,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Date",
+											"value": "Sun, 12 Jun 2022 22:37:54 GMT"
+										},
+										{
+											"key": "Server",
+											"value": "WSGIServer/0.2 CPython/3.10.4"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										},
+										{
+											"key": "Vary",
+											"value": "Accept"
+										},
+										{
+											"key": "Allow",
+											"value": "DELETE, OPTIONS"
+										},
+										{
+											"key": "X-Frame-Options",
+											"value": "DENY"
+										},
+										{
+											"key": "Content-Length",
+											"value": "31"
+										},
+										{
+											"key": "X-Content-Type-Options",
+											"value": "nosniff"
+										},
+										{
+											"key": "Referrer-Policy",
+											"value": "same-origin"
+										},
+										{
+											"key": "Cross-Origin-Opener-Policy",
+											"value": "same-origin"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"msg\": \"Not Unauthorized user\"\n}"
+								}
+							]
+						},
+						{
+							"name": "posted_jobs_per_employer",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjU1MTk3Nzg1LCJpYXQiOjE2NTUxOTc0ODUsImp0aSI6Ijg2MGZhM2M1NTgzYjRkNGQ4MGU1YTYxZTAyYmJiNTNjIiwidXNlcl9pZCI6NzZ9.P2QSOXmliiHDA8CVrb8qAM5i7QqJHt9p2t1DTTVsOnI",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://127.0.0.1:8000/posted_jobs_per_employer/2/",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"posted_jobs_per_employer",
+										"2",
+										""
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "posted_jobs_per_employer",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjU1MTA3MzMxLCJpYXQiOjE2NTUxMDYxMzEsImp0aSI6IjQzYmRlYjIzZDg4MzQ3OGE4ZDM1NDRkZGI0NmJlMTQwIiwidXNlcl9pZCI6NzZ9.hD2AnpvxfutIniM9wMVSQcKeGnG_M9Tziuq0e0gtS8k",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "http://127.0.0.1:8000/posted_jobs_per_employer/8/",
+											"protocol": "http",
+											"host": [
+												"127",
+												"0",
+												"0",
+												"1"
+											],
+											"port": "8000",
+											"path": [
+												"posted_jobs_per_employer",
+												"8",
+												""
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Date",
+											"value": "Mon, 13 Jun 2022 07:42:39 GMT"
+										},
+										{
+											"key": "Server",
+											"value": "WSGIServer/0.2 CPython/3.10.4"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										},
+										{
+											"key": "Vary",
+											"value": "Accept"
+										},
+										{
+											"key": "Allow",
+											"value": "GET, OPTIONS"
+										},
+										{
+											"key": "X-Frame-Options",
+											"value": "DENY"
+										},
+										{
+											"key": "Content-Length",
+											"value": "400"
+										},
+										{
+											"key": "X-Content-Type-Options",
+											"value": "nosniff"
+										},
+										{
+											"key": "Referrer-Policy",
+											"value": "same-origin"
+										},
+										{
+											"key": "Cross-Origin-Opener-Policy",
+											"value": "same-origin"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"msg\": \"List of All Jobs\",\n    \"Job\": [\n        {\n            \"id\": 13,\n            \"title\": \"updated  1am\",\n            \"requirements\": \"job2 requirements\",\n            \"type\": \"remote\",\n            \"Start_date\": \"2022-06-12\",\n            \"city\": \"Riyadh\",\n            \"category\": \"Developer\",\n            \"image\": \"image.png\",\n            \"employer_id\": 8\n        },\n        {\n            \"id\": 16,\n            \"title\": \"job 9 am\",\n            \"requirements\": \"job2 requirements\",\n            \"type\": \"remote\",\n            \"Start_date\": \"2022-06-12\",\n            \"city\": \"Riyadh\",\n            \"category\": \"Developer\",\n            \"image\": \"image.png\",\n            \"employer_id\": 8\n        }\n    ]\n}"
+								}
+							]
+						},
+						{
+							"name": "update_request_status",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjU1MTU5NTI4LCJpYXQiOjE2NTUxNTgzMjgsImp0aSI6IjAwNmRjY2Q1YzNmZTQzYjhhNGI4OGNkYzY1NmEzMjljIiwidXNlcl9pZCI6NzZ9.SAlH3Rqy_GDAh-hipB8fvO4OzojDtM5R4PyfYfHGRlg",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"status\":\"accepted\"\r\n\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://127.0.0.1:8000/update_request_status/25/",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"update_request_status",
+										"25",
+										""
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "update_request_status",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjU1MTU5NTI4LCJpYXQiOjE2NTUxNTgzMjgsImp0aSI6IjAwNmRjY2Q1YzNmZTQzYjhhNGI4OGNkYzY1NmEzMjljIiwidXNlcl9pZCI6NzZ9.SAlH3Rqy_GDAh-hipB8fvO4OzojDtM5R4PyfYfHGRlg",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"status\":\"accepted\"\r\n\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "http://127.0.0.1:8000/update_request_status/25/",
+											"protocol": "http",
+											"host": [
+												"127",
+												"0",
+												"0",
+												"1"
+											],
+											"port": "8000",
+											"path": [
+												"update_request_status",
+												"25",
+												""
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Date",
+											"value": "Mon, 13 Jun 2022 22:25:52 GMT"
+										},
+										{
+											"key": "Server",
+											"value": "WSGIServer/0.2 CPython/3.10.4"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										},
+										{
+											"key": "Vary",
+											"value": "Accept"
+										},
+										{
+											"key": "Allow",
+											"value": "OPTIONS, PUT"
+										},
+										{
+											"key": "X-Frame-Options",
+											"value": "DENY"
+										},
+										{
+											"key": "Content-Length",
+											"value": "374"
+										},
+										{
+											"key": "X-Content-Type-Options",
+											"value": "nosniff"
+										},
+										{
+											"key": "Referrer-Policy",
+											"value": "same-origin"
+										},
+										{
+											"key": "Cross-Origin-Opener-Policy",
+											"value": "same-origin"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"msg\": \"Status Updated Successfully\",\n    \"User Profile\": {\n        \"job\": {\n            \"id\": 16,\n            \"title\": \"job 9 am\",\n            \"requirements\": \"job2 requirements\",\n            \"type\": \"on site\",\n            \"Start_date\": \"2022-06-12\",\n            \"city\": \"Jeddah\",\n            \"category\": \"Writer\",\n            \"image\": \"image.png\",\n            \"employer_id\": 8\n        },\n        \"jobSeeker\": {\n            \"id\": 2,\n            \"phone\": \"0503411769\",\n            \"cv\": null,\n            \"user\": 71\n        },\n        \"status\": \"accepted\",\n        \"job_title\": \"job 9 am\",\n        \"job_seeker_name\": \"jobseeker\"\n    }\n}"
+								}
+							]
+						},
+						{
+							"name": "applications_per_job",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjU1MTk3MzU1LCJpYXQiOjE2NTUxOTcwNTUsImp0aSI6ImMxMDdkY2YxOTEzNzQ3ZGI4NWUyZjAwZDY0NDg1YThkIiwidXNlcl9pZCI6NzZ9.M2K9S8tRFC3AhRWsIhtPTwOtupoMH8wbnoQ4y_As1fs",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://127.0.0.1:8000/applications_per_job/8/",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"applications_per_job",
+										"8",
+										""
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "applications_per_job",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjU1MTU2ODM0LCJpYXQiOjE2NTUxNTU2MzQsImp0aSI6IjA5YjE5ZGEzNDAzMTQ5Y2Y4Y2UwZmE3NDllZTA4MTc2IiwidXNlcl9pZCI6NzZ9.s9JvklBIIKECiTiNNoDo-WcbyT5EZ5_MRNhRetQXZ7o",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "http://127.0.0.1:8000/applications_per_job/8/",
+											"protocol": "http",
+											"host": [
+												"127",
+												"0",
+												"0",
+												"1"
+											],
+											"port": "8000",
+											"path": [
+												"applications_per_job",
+												"8",
+												""
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Date",
+											"value": "Mon, 13 Jun 2022 21:27:49 GMT"
+										},
+										{
+											"key": "Server",
+											"value": "WSGIServer/0.2 CPython/3.10.4"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										},
+										{
+											"key": "Vary",
+											"value": "Accept"
+										},
+										{
+											"key": "Allow",
+											"value": "GET, OPTIONS"
+										},
+										{
+											"key": "X-Frame-Options",
+											"value": "DENY"
+										},
+										{
+											"key": "Content-Length",
+											"value": "379"
+										},
+										{
+											"key": "X-Content-Type-Options",
+											"value": "nosniff"
+										},
+										{
+											"key": "Referrer-Policy",
+											"value": "same-origin"
+										},
+										{
+											"key": "Cross-Origin-Opener-Policy",
+											"value": "same-origin"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"msg application\": \"List of Applied Jobs\",\n    \"application\": [\n        {\n            \"job\": {\n                \"id\": 16,\n                \"title\": \"job 9 am\",\n                \"requirements\": \"job2 requirements\",\n                \"type\": \"on site\",\n                \"Start_date\": \"2022-06-12\",\n                \"city\": \"Jeddah\",\n                \"category\": \"Writer\",\n                \"image\": \"image.png\",\n                \"employer_id\": 8\n            },\n            \"jobSeeker\": {\n                \"id\": 2,\n                \"phone\": \"0503411769\",\n                \"cv\": null,\n                \"user\": 71\n            },\n            \"status\": \"pending\",\n            \"job_title\": \"job 9 am\",\n            \"job_seeker_name\": \"jobseeker\"\n        }\n    ]\n}"
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "Job Applications",
+					"item": [
+						{
+							"name": "apply for jpb",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjU1MTE2Mzg2LCJpYXQiOjE2NTUxMTUxODYsImp0aSI6IjQ1Njg0OTI5NzNkNzQyZjg5YzgwY2M4NTJmNzhjMTUxIiwidXNlcl9pZCI6NzF9.o3ZxwFzNNOopF976sI4Jp2uBpel9GZXcZyMvP-UHw7c",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"jobSeeker\":2,\r\n    \"job\":5\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://127.0.0.1:8000/apply_for_job/",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"apply_for_job",
+										""
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "JobApplications",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjU1MTE1NDkxLCJpYXQiOjE2NTUxMTQyOTEsImp0aSI6ImY4ZDY2YjIwZmM3ZDRlNjg5NjBmNGU0OGMwMDZkNmE0IiwidXNlcl9pZCI6NzF9.zJfo-u5So_1-SKqDvwwli2e2d6kPcYuftBXz1_TSUQk",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"jobSeeker\":1,\r\n    \"job\":5\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "http://127.0.0.1:8000/apply_for_job/5/",
+											"protocol": "http",
+											"host": [
+												"127",
+												"0",
+												"0",
+												"1"
+											],
+											"port": "8000",
+											"path": [
+												"apply_for_job",
+												"5",
+												""
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Date",
+											"value": "Mon, 13 Jun 2022 09:58:33 GMT"
+										},
+										{
+											"key": "Server",
+											"value": "WSGIServer/0.2 CPython/3.10.4"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										},
+										{
+											"key": "Vary",
+											"value": "Accept"
+										},
+										{
+											"key": "Allow",
+											"value": "OPTIONS, POST"
+										},
+										{
+											"key": "X-Frame-Options",
+											"value": "DENY"
+										},
+										{
+											"key": "Content-Length",
+											"value": "127"
+										},
+										{
+											"key": "X-Content-Type-Options",
+											"value": "nosniff"
+										},
+										{
+											"key": "Referrer-Policy",
+											"value": "same-origin"
+										},
+										{
+											"key": "Cross-Origin-Opener-Policy",
+											"value": "same-origin"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"msg\": \"Applied Successfully\",\n    \"application\": {\n        \"job\": 5,\n        \"jobSeeker\": 1,\n        \"status\": \"pending\",\n        \"job_title\": \"k1\",\n        \"job_seeker_name\": \"80\"\n    }\n}"
+								}
+							]
+						},
+						{
+							"name": "delete_application",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjU1MTE2Mzg2LCJpYXQiOjE2NTUxMTUxODYsImp0aSI6IjQ1Njg0OTI5NzNkNzQyZjg5YzgwY2M4NTJmNzhjMTUxIiwidXNlcl9pZCI6NzF9.o3ZxwFzNNOopF976sI4Jp2uBpel9GZXcZyMvP-UHw7c",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://127.0.0.1:8000/delete_application/20/",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"delete_application",
+										"20",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "applied_job_list",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjU1MTk3MzU1LCJpYXQiOjE2NTUxOTcwNTUsImp0aSI6ImMxMDdkY2YxOTEzNzQ3ZGI4NWUyZjAwZDY0NDg1YThkIiwidXNlcl9pZCI6NzZ9.M2K9S8tRFC3AhRWsIhtPTwOtupoMH8wbnoQ4y_As1fs",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://127.0.0.1:8000/applied_job_list/2/",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"applied_job_list",
+										"2",
+										""
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "common",
+					"item": [
+						{
+							"name": "search",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://127.0.0.1:8000/search/?category=Developer",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"search",
+										""
+									],
+									"query": [
+										{
+											"key": "type",
+											"value": "os site",
+											"disabled": true
+										},
+										{
+											"key": "category",
+											"value": "Developer"
+										},
+										{
+											"key": "city",
+											"value": "Jeddah",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "list of jobs",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://127.0.0.1:8000/all_jobs/",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"all_jobs",
+										""
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "list of jobs",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "http://127.0.0.1:8000/all_jobs/",
+											"protocol": "http",
+											"host": [
+												"127",
+												"0",
+												"0",
+												"1"
+											],
+											"port": "8000",
+											"path": [
+												"all_jobs",
+												""
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Date",
+											"value": "Sun, 12 Jun 2022 21:46:34 GMT"
+										},
+										{
+											"key": "Server",
+											"value": "WSGIServer/0.2 CPython/3.10.4"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										},
+										{
+											"key": "Vary",
+											"value": "Accept"
+										},
+										{
+											"key": "Allow",
+											"value": "OPTIONS, GET"
+										},
+										{
+											"key": "X-Frame-Options",
+											"value": "DENY"
+										},
+										{
+											"key": "Content-Length",
+											"value": "1599"
+										},
+										{
+											"key": "X-Content-Type-Options",
+											"value": "nosniff"
+										},
+										{
+											"key": "Referrer-Policy",
+											"value": "same-origin"
+										},
+										{
+											"key": "Cross-Origin-Opener-Policy",
+											"value": "same-origin"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"msg\": \"List of All Jobs\",\n    \"Job\": [\n        {\n            \"id\": 4,\n            \"title\": \"job1\",\n            \"requirements\": \"Requirements for job1\",\n            \"type\": \"on site\",\n            \"Start_date\": \"2022-06-15\",\n            \"city\": \"Riyadh\",\n            \"category\": \"Developer\",\n            \"image\": \"image.png\",\n            \"employer_id\": 2\n        },\n        {\n            \"id\": 5,\n            \"title\": \"k1\",\n            \"requirements\": \"1\",\n            \"type\": \"on site\",\n            \"Start_date\": \"2022-06-12\",\n            \"city\": \"Riyadh\",\n            \"category\": \"Developer\",\n            \"image\": \"a\",\n            \"employer_id\": 2\n        },\n        {\n            \"id\": 6,\n            \"title\": \"job2\",\n            \"requirements\": \"job2 requirements\",\n            \"type\": \"remote\",\n            \"Start_date\": \"2022-06-12\",\n            \"city\": \"Riyadh\",\n            \"category\": \"Developer\",\n            \"image\": \"image.png\",\n            \"employer_id\": 8\n        },\n        {\n            \"id\": 7,\n            \"title\": \"job3\",\n            \"requirements\": \"job2 requirements\",\n            \"type\": \"remote\",\n            \"Start_date\": \"2022-06-12\",\n            \"city\": \"Riyadh\",\n            \"category\": \"Developer\",\n            \"image\": \"image.png\",\n            \"employer_id\": 8\n        },\n        {\n            \"id\": 8,\n            \"title\": \"job3\",\n            \"requirements\": \"job2 requirements\",\n            \"type\": \"remote\",\n            \"Start_date\": \"2022-06-12\",\n            \"city\": \"Riyadh\",\n            \"category\": \"Developer\",\n            \"image\": \"image.png\",\n            \"employer_id\": 2\n        },\n        {\n            \"id\": 9,\n            \"title\": \"job3\",\n            \"requirements\": \"job2 requirements\",\n            \"type\": \"remote\",\n            \"Start_date\": \"2022-06-12\",\n            \"city\": \"Riyadh\",\n            \"category\": \"Developer\",\n            \"image\": \"image.png\",\n            \"employer_id\": 2\n        },\n        {\n            \"id\": 10,\n            \"title\": \"job3\",\n            \"requirements\": \"job2 requirements\",\n            \"type\": \"remote\",\n            \"Start_date\": \"2022-06-12\",\n            \"city\": \"Riyadh\",\n            \"category\": \"Developer\",\n            \"image\": \"image.png\",\n            \"employer_id\": 2\n        },\n        {\n            \"id\": 11,\n            \"title\": \"67\",\n            \"requirements\": \"job2 requirements\",\n            \"type\": \"remote\",\n            \"Start_date\": \"2022-06-12\",\n            \"city\": \"Riyadh\",\n            \"category\": \"Developer\",\n            \"image\": \"image.png\",\n            \"employer_id\": 2\n        },\n        {\n            \"id\": 12,\n            \"title\": \"job3\",\n            \"requirements\": \"job2 requirements\",\n            \"type\": \"remote\",\n            \"Start_date\": \"2022-06-12\",\n            \"city\": \"Riyadh\",\n            \"category\": \"Developer\",\n            \"image\": \"image.png\",\n            \"employer_id\": 2\n        }\n    ]\n}"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Users",
+			"item": [
+				{
+					"name": "Employer",
+					"item": [
+						{
+							"name": "employer dashboard",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjU1MTk4MzI2LCJpYXQiOjE2NTUxOTgwMjYsImp0aSI6IjdmNDkwZTIxNmFjMTQ5MTI4MGE1OTM3NTYyN2ViNjk2IiwidXNlcl9pZCI6NzZ9.l24CTq2LYA7Os8SAWdqG2ZH7z2aRbzgvOh2tyoALwgk",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://127.0.0.1:8000/employer/dashboard/",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"employer",
+										"dashboard",
+										""
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "employer dashboard",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "Token a02fe1cd562dfd3e97aa3a3ee5c1e0fa2765101d",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "http://127.0.0.1:8000/employer/dashboard/",
+											"protocol": "http",
+											"host": [
+												"127",
+												"0",
+												"0",
+												"1"
+											],
+											"port": "8000",
+											"path": [
+												"employer",
+												"dashboard",
+												""
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Date",
+											"value": "Sun, 12 Jun 2022 07:51:59 GMT"
+										},
+										{
+											"key": "Server",
+											"value": "WSGIServer/0.2 CPython/3.10.4"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										},
+										{
+											"key": "Vary",
+											"value": "Accept"
+										},
+										{
+											"key": "Allow",
+											"value": "GET, HEAD, OPTIONS"
+										},
+										{
+											"key": "X-Frame-Options",
+											"value": "DENY"
+										},
+										{
+											"key": "Content-Length",
+											"value": "73"
+										},
+										{
+											"key": "X-Content-Type-Options",
+											"value": "nosniff"
+										},
+										{
+											"key": "Referrer-Policy",
+											"value": "same-origin"
+										},
+										{
+											"key": "Cross-Origin-Opener-Policy",
+											"value": "same-origin"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"email\": \"employer2@gmail.com\",\n    \"username\": \"employer2\",\n    \"is_employer\": true\n}"
+								}
+							]
+						},
+						{
+							"name": "employer sign up",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"username\":\"employer4\",\r\n    \"email\":\"employer4@gmail.com\",\r\n    \"password\":\"employer4\",\r\n    \"confirm_password\":\"employer4\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://127.0.0.1:8000/employer/",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"employer",
+										""
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "employer sign up",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"username\":\"wafa2\",\r\n    \"email\":\"wafa1@gmail.com\",\r\n    \"password\":\"wafa2\",\r\n    \"password2\":\"wafa2\",\r\n    \"is_employer\":true\r\n\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "http://127.0.0.1:8000/employer/",
+											"protocol": "http",
+											"host": [
+												"127",
+												"0",
+												"0",
+												"1"
+											],
+											"port": "8000",
+											"path": [
+												"employer",
+												""
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Date",
+											"value": "Sat, 11 Jun 2022 19:32:42 GMT"
+										},
+										{
+											"key": "Server",
+											"value": "WSGIServer/0.2 CPython/3.10.4"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										},
+										{
+											"key": "Vary",
+											"value": "Accept"
+										},
+										{
+											"key": "Allow",
+											"value": "POST, OPTIONS"
+										},
+										{
+											"key": "X-Frame-Options",
+											"value": "DENY"
+										},
+										{
+											"key": "Content-Length",
+											"value": "162"
+										},
+										{
+											"key": "X-Content-Type-Options",
+											"value": "nosniff"
+										},
+										{
+											"key": "Referrer-Policy",
+											"value": "same-origin"
+										},
+										{
+											"key": "Cross-Origin-Opener-Policy",
+											"value": "same-origin"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"user\": {\n        \"username\": \"wafa2\",\n        \"email\": \"wafa1@gmail.com\",\n        \"is_employer\": true\n    },\n    \"token\": \"680e9be632a9cf0d2b73481502e4aa1e52e2d661\",\n    \"msg\": \"account created successfully\"\n}"
+								},
+								{
+									"name": "employer sign up",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"username\":\"employer2\",\r\n    \"email\":\"employer2@gmail.com\",\r\n    \"password\":\"employer2\",\r\n    \"confirm_password\":\"employer2\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "http://127.0.0.1:8000/employer/",
+											"protocol": "http",
+											"host": [
+												"127",
+												"0",
+												"0",
+												"1"
+											],
+											"port": "8000",
+											"path": [
+												"employer",
+												""
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Date",
+											"value": "Sun, 12 Jun 2022 07:48:05 GMT"
+										},
+										{
+											"key": "Server",
+											"value": "WSGIServer/0.2 CPython/3.10.4"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										},
+										{
+											"key": "Vary",
+											"value": "Accept"
+										},
+										{
+											"key": "Allow",
+											"value": "POST, OPTIONS"
+										},
+										{
+											"key": "X-Frame-Options",
+											"value": "DENY"
+										},
+										{
+											"key": "Content-Length",
+											"value": "170"
+										},
+										{
+											"key": "X-Content-Type-Options",
+											"value": "nosniff"
+										},
+										{
+											"key": "Referrer-Policy",
+											"value": "same-origin"
+										},
+										{
+											"key": "Cross-Origin-Opener-Policy",
+											"value": "same-origin"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"user\": {\n        \"email\": \"employer2@gmail.com\",\n        \"username\": \"employer2\",\n        \"is_employer\": true\n    },\n    \"token\": \"a02fe1cd562dfd3e97aa3a3ee5c1e0fa2765101d\",\n    \"msg\": \"account created successfully\"\n}"
+								},
+								{
+									"name": "employer sign up",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"username\":\"employer2\",\r\n    \"email\":\"employer2@gmail.com\",\r\n    \"password\":\"employer2\",\r\n    \"confirm_password\":\"employer2\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "http://127.0.0.1:8000/employer/",
+											"protocol": "http",
+											"host": [
+												"127",
+												"0",
+												"0",
+												"1"
+											],
+											"port": "8000",
+											"path": [
+												"employer",
+												""
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Date",
+											"value": "Sun, 12 Jun 2022 07:48:05 GMT"
+										},
+										{
+											"key": "Server",
+											"value": "WSGIServer/0.2 CPython/3.10.4"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										},
+										{
+											"key": "Vary",
+											"value": "Accept"
+										},
+										{
+											"key": "Allow",
+											"value": "POST, OPTIONS"
+										},
+										{
+											"key": "X-Frame-Options",
+											"value": "DENY"
+										},
+										{
+											"key": "Content-Length",
+											"value": "170"
+										},
+										{
+											"key": "X-Content-Type-Options",
+											"value": "nosniff"
+										},
+										{
+											"key": "Referrer-Policy",
+											"value": "same-origin"
+										},
+										{
+											"key": "Cross-Origin-Opener-Policy",
+											"value": "same-origin"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"user\": {\n        \"email\": \"employer2@gmail.com\",\n        \"username\": \"employer2\",\n        \"is_employer\": true\n    },\n    \"token\": \"a02fe1cd562dfd3e97aa3a3ee5c1e0fa2765101d\",\n    \"msg\": \"account created successfully\"\n}"
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "Job Seeker",
+					"item": [
+						{
+							"name": "job seeker sign up",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"username\":\"jobseeker\",\r\n    \"email\":\"jobseeker@gmail.com\",\r\n    \"password\":\"jobseeker\",\r\n    \"confirm_password\":\"jobseeker\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://127.0.0.1:8000/jobSeeker/",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"jobSeeker",
+										""
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "job seeker sign up",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"username\":\"80\",\r\n    \"email\":\"tes1t@gmail.com\",\r\n    \"password\":\"test1z\",\r\n    \"confirm_password\":\"test1z\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "http://127.0.0.1:8000/jobSeeker/",
+											"protocol": "http",
+											"host": [
+												"127",
+												"0",
+												"0",
+												"1"
+											],
+											"port": "8000",
+											"path": [
+												"jobSeeker",
+												""
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Date",
+											"value": "Sat, 11 Jun 2022 21:40:52 GMT"
+										},
+										{
+											"key": "Server",
+											"value": "WSGIServer/0.2 CPython/3.10.4"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										},
+										{
+											"key": "Vary",
+											"value": "Accept"
+										},
+										{
+											"key": "Allow",
+											"value": "POST, OPTIONS"
+										},
+										{
+											"key": "X-Frame-Options",
+											"value": "DENY"
+										},
+										{
+											"key": "Content-Length",
+											"value": "160"
+										},
+										{
+											"key": "X-Content-Type-Options",
+											"value": "nosniff"
+										},
+										{
+											"key": "Referrer-Policy",
+											"value": "same-origin"
+										},
+										{
+											"key": "Cross-Origin-Opener-Policy",
+											"value": "same-origin"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"user\": {\n        \"email\": \"tes1t@gmail.com\",\n        \"username\": \"80\",\n        \"is_employer\": false\n    },\n    \"token\": \"d8e3d702a82d1ec580ccc86b7f74cc201f31a1a9\",\n    \"msg\": \"account created successfully\"\n}"
+								}
+							]
+						},
+						{
+							"name": "jobSeekerdashboard",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Token a02fe1cd562dfd3e97aa3a3ee5c1e0fa2765101d",
+										"type": "text",
+										"disabled": true
+									},
+									{
+										"key": "Authorization",
+										"value": "Token 713cfe05f6f4401c7eb9baf79feb5666e3388617",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://127.0.0.1:8000/jobSeeker/dashboard/",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"jobSeeker",
+										"dashboard",
+										""
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "jobSeekerdashboard",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "Token a02fe1cd562dfd3e97aa3a3ee5c1e0fa2765101d",
+												"type": "text",
+												"disabled": true
+											},
+											{
+												"key": "Authorization",
+												"value": "Token 713cfe05f6f4401c7eb9baf79feb5666e3388617",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "http://127.0.0.1:8000/jobSeeker/dashboard/",
+											"protocol": "http",
+											"host": [
+												"127",
+												"0",
+												"0",
+												"1"
+											],
+											"port": "8000",
+											"path": [
+												"jobSeeker",
+												"dashboard",
+												""
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Date",
+											"value": "Sun, 12 Jun 2022 10:17:45 GMT"
+										},
+										{
+											"key": "Server",
+											"value": "WSGIServer/0.2 CPython/3.10.4"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										},
+										{
+											"key": "Vary",
+											"value": "Accept"
+										},
+										{
+											"key": "Allow",
+											"value": "GET, HEAD, OPTIONS"
+										},
+										{
+											"key": "X-Frame-Options",
+											"value": "DENY"
+										},
+										{
+											"key": "Content-Length",
+											"value": "74"
+										},
+										{
+											"key": "X-Content-Type-Options",
+											"value": "nosniff"
+										},
+										{
+											"key": "Referrer-Policy",
+											"value": "same-origin"
+										},
+										{
+											"key": "Cross-Origin-Opener-Policy",
+											"value": "same-origin"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"email\": \"jobseeker@gmail.com\",\n    \"username\": \"jobseeker\",\n    \"is_employer\": false\n}"
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "login",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjU1MTE2MTcxLCJpYXQiOjE2NTUxMTQ5NzEsImp0aSI6IjY3NTgyZmQzZGQxODQxMTY4Zjk1MGY1MjFkNDRkYTc2IiwidXNlcl9pZCI6NzF9.wlNSBEWYca7jVIFIQSe0551Ppo8BTEKAXx1tHlAeWE0",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\":\"employer4\",\r\n    \"password\":\"employer4\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/login/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"login",
+								""
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "login",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "",
+										"value": "",
+										"type": "text",
+										"disabled": true
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"username\":\"employer2\",\r\n    \"password\":\"employer2\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://127.0.0.1:8000/login/",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"login",
+										""
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Sun, 12 Jun 2022 07:48:51 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "WSGIServer/0.2 CPython/3.10.4"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Allow",
+									"value": "POST, OPTIONS"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Length",
+									"value": "84"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Cross-Origin-Opener-Policy",
+									"value": "same-origin"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"token\": \"a02fe1cd562dfd3e97aa3a3ee5c1e0fa2765101d\",\n    \"user_id\": 70,\n    \"is_employer\": true\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Profile",
+			"item": [
+				{
+					"name": "Employer",
+					"item": [
+						{
+							"name": "view_profile_employer",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjU1MTkwMTkxLCJpYXQiOjE2NTUxODg5OTEsImp0aSI6IjRkOWI5ZDc5NGZjOTRhYTBhM2JjMTkwOWZhMTg4ODAzIiwidXNlcl9pZCI6NzZ9.Fmj7OKLlIR6ZuYK37YcMwbd6kLEJvEp74QgfX8GcgWY",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://127.0.0.1:8000/view_profile_employer/8/",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"view_profile_employer",
+										"8",
+										""
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "view_profile_employer",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjU1MTkwMTkxLCJpYXQiOjE2NTUxODg5OTEsImp0aSI6IjRkOWI5ZDc5NGZjOTRhYTBhM2JjMTkwOWZhMTg4ODAzIiwidXNlcl9pZCI6NzZ9.Fmj7OKLlIR6ZuYK37YcMwbd6kLEJvEp74QgfX8GcgWY",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "http://127.0.0.1:8000/view_profile_employer/8/",
+											"protocol": "http",
+											"host": [
+												"127",
+												"0",
+												"0",
+												"1"
+											],
+											"port": "8000",
+											"path": [
+												"view_profile_employer",
+												"8",
+												""
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Date",
+											"value": "Tue, 14 Jun 2022 06:45:19 GMT"
+										},
+										{
+											"key": "Server",
+											"value": "WSGIServer/0.2 CPython/3.10.4"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										},
+										{
+											"key": "Vary",
+											"value": "Accept"
+										},
+										{
+											"key": "Allow",
+											"value": "OPTIONS, GET"
+										},
+										{
+											"key": "X-Frame-Options",
+											"value": "DENY"
+										},
+										{
+											"key": "Content-Length",
+											"value": "146"
+										},
+										{
+											"key": "X-Content-Type-Options",
+											"value": "nosniff"
+										},
+										{
+											"key": "Referrer-Policy",
+											"value": "same-origin"
+										},
+										{
+											"key": "Cross-Origin-Opener-Policy",
+											"value": "same-origin"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"msg\": \"Employer Profile\",\n    \"Job\": {\n        \"id\": 8,\n        \"user\": {\n            \"email\": \"employer4@gmail.com\",\n            \"username\": \"employer4\",\n            \"is_employer\": true\n        },\n        \"phone\": null,\n        \"brief\": \"\"\n    }\n}"
+								}
+							]
+						},
+						{
+							"name": "update_profile_employer",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjU1MTg5NDc4LCJpYXQiOjE2NTUxODgyNzgsImp0aSI6ImQzOWVkNWJhMDdmYzQ4ZThhMDQwOTMzNDlkYzEyYzA1IiwidXNlcl9pZCI6NzZ9.2AA3nDIA28z2uZSESuT5ffMdkSIusUCx7GkLO1ckUWo",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"phone\":\"0534910470\",\r\n    \"brief\":\"brief\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://127.0.0.1:8000/update_profile_employer/8/",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"update_profile_employer",
+										"8",
+										""
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Job Seeker",
+					"item": [
+						{
+							"name": "update_profile_JobSeeker",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjU1MTkwNTMxLCJpYXQiOjE2NTUxODkzMzEsImp0aSI6ImYyNjFjZDZiYmQzMzQ3OGRiMjhjODVlZDc3MjFlOWUzIiwidXNlcl9pZCI6NzF9.MLOshpEChYg0QiiyMGvu1I_Uil_rcj7j2c41PpDk71s",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n   \"phone\":\"0503411769\"\r\n   }",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://127.0.0.1:8000/update_profile_JobSeeker/2/",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"update_profile_JobSeeker",
+										"2",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "view_profile_JobSeeker",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjU1MTkwNTMxLCJpYXQiOjE2NTUxODkzMzEsImp0aSI6ImYyNjFjZDZiYmQzMzQ3OGRiMjhjODVlZDc3MjFlOWUzIiwidXNlcl9pZCI6NzF9.MLOshpEChYg0QiiyMGvu1I_Uil_rcj7j2c41PpDk71s",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://127.0.0.1:8000/view_profile_JobSeeker/2/",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"view_profile_JobSeeker",
+										"2",
+										""
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "view_profile_JobSeeker",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjU1MTkwNTMxLCJpYXQiOjE2NTUxODkzMzEsImp0aSI6ImYyNjFjZDZiYmQzMzQ3OGRiMjhjODVlZDc3MjFlOWUzIiwidXNlcl9pZCI6NzF9.MLOshpEChYg0QiiyMGvu1I_Uil_rcj7j2c41PpDk71s",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "http://127.0.0.1:8000/view_profile_JobSeeker/2/",
+											"protocol": "http",
+											"host": [
+												"127",
+												"0",
+												"0",
+												"1"
+											],
+											"port": "8000",
+											"path": [
+												"view_profile_JobSeeker",
+												"2",
+												""
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Date",
+											"value": "Tue, 14 Jun 2022 06:52:09 GMT"
+										},
+										{
+											"key": "Server",
+											"value": "WSGIServer/0.2 CPython/3.10.4"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										},
+										{
+											"key": "Vary",
+											"value": "Accept"
+										},
+										{
+											"key": "Allow",
+											"value": "GET, OPTIONS"
+										},
+										{
+											"key": "X-Frame-Options",
+											"value": "DENY"
+										},
+										{
+											"key": "Content-Length",
+											"value": "472"
+										},
+										{
+											"key": "X-Content-Type-Options",
+											"value": "nosniff"
+										},
+										{
+											"key": "Referrer-Policy",
+											"value": "same-origin"
+										},
+										{
+											"key": "Cross-Origin-Opener-Policy",
+											"value": "same-origin"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"msg\": \"Job Seeker Profile\",\n    \"Profile\": {\n        \"id\": 2,\n        \"phone\": \"0503411769\",\n        \"cv\": null,\n        \"user\": {\n            \"id\": 71,\n            \"password\": \"pbkdf2_sha256$320000$CruLP4V9i4UVDtng0vmaaS$SDPz27UFq5+9hrJm+u1wgQ5b8QRGUigJ+PYkdIPn8dg=\",\n            \"last_login\": null,\n            \"is_superuser\": false,\n            \"username\": \"jobseeker\",\n            \"first_name\": \"\",\n            \"last_name\": \"\",\n            \"email\": \"jobseeker@gmail.com\",\n            \"is_staff\": false,\n            \"is_active\": true,\n            \"date_joined\": \"2022-06-12T10:16:53.374954Z\",\n            \"is_employer\": false,\n            \"is_jobSeeker\": true,\n            \"groups\": [],\n            \"user_permissions\": []\n        }\n    }\n}"
+								}
+							]
+						}
+					]
+				}
+			]
+		}
+	]
+}
